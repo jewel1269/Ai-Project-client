@@ -13,7 +13,7 @@ import loginAnimation from "../assets/loginAnimation.json";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -64,6 +64,15 @@ const Login = () => {
         console.log(err);
       });
   };
+
+  const googleLogin = ()=>{
+    googleSignIn()
+    .then((res) => {
+      const user = res.user;
+      alert("successfull");
+    })
+
+  }
   return (
     <div className=" bg-[url(/bg.png)] bg-contain ">
       <div className=" bg-white bg-opacity-90 min-h-screen">
@@ -118,7 +127,7 @@ const Login = () => {
                 />
               </form>
             </div>
-            <Social></Social>
+            <Social googleLogin={googleLogin}></Social>
             <div className="lottie  flex-1 mx-20">
               <Lottie animationData={loginAnimation} loop={true}></Lottie>
             </div>

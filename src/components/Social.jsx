@@ -1,8 +1,9 @@
-const Social = () => {
+const Social = ({googleLogin}) => {
   return (
     <div className=" bg-white shadow py-3 rounded-full flex flex-col items-center">
       <div>
         <img
+        onClick={googleLogin}
           className="w-[64px]"
           src="https://img.icons8.com/?size=96&id=17949&format=png"
           alt=""
